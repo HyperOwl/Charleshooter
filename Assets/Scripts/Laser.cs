@@ -16,7 +16,7 @@ public class Laser : MonoBehaviour {
         {
             Debug.Log("hit");
             Destroy(gameObject);
-            Destroy(collision.gameObject);
+            collision.gameObject.GetComponent<EnemyController>().Die();
         }
         if (collision.gameObject.CompareTag("Edge"))
         {

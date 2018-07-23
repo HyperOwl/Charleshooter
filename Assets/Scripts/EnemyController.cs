@@ -1,12 +1,10 @@
 ﻿using UnityEngine;
 
-public class EnemyController : MonoBehaviour {
+public class EnemyController : MonoBehaviour{ 
 
-	private void Start () {
-		
-	}
-	
-	private void Update () {
-		
-	}
+    public void Die()
+    {
+        Destroy(gameObject);
+        Debug.Log("MLG PRO");
+    }
 }
