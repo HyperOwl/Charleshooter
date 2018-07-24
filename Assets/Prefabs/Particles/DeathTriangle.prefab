@@ -21,8 +21,9 @@ GameObject:
   - component: {fileID: 4460548077900662}
   - component: {fileID: 198801242745788134}
   - component: {fileID: 199711713624116874}
+  - component: {fileID: 114082740386060112}
   m_Layer: 0
-  m_Name: TriangleDeath
+  m_Name: DeathTriangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,6 +42,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!114 &114082740386060112
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1695534845617556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0baa815dc423910419241094404adc96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &198801242745788134
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -607,7 +619,7 @@ ParticleSystem:
     randomizeRotationDirection: 0
     maxNumParticles: 1000
     size3D: 0
-    rotation3D: 1
+    rotation3D: 0
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0

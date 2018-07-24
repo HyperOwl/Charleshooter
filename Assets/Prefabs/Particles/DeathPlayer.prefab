@@ -21,8 +21,9 @@ GameObject:
   - component: {fileID: 4580675614796600}
   - component: {fileID: 198697459063053212}
   - component: {fileID: 199493406253097662}
+  - component: {fileID: 114447393558531826}
   m_Layer: 0
-  m_Name: DeathAnimation
+  m_Name: DeathPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,6 +42,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!114 &114447393558531826
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1189577676409348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0baa815dc423910419241094404adc96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &198697459063053212
 ParticleSystem:
   m_ObjectHideFlags: 1

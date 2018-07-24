@@ -1,13 +1,18 @@
 ﻿using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Animator))]
 
 public class PlayerController : MonoBehaviour {
     private Rigidbody2D rb;
+    private PlayerWeapons weapons;
     [SerializeField]
     private ParticleSystem deathAnimation;
     [SerializeField]
     private SpawnManager spawnManager;
-
+    [SerializeField]
+    private Camera mainCam;
+    [SerializeField]
+    private Camera overhead;
     public bool dead = false;
     public float speed = 1;
     [Range(0,2)] [SerializeField]
@@ -20,11 +25,14 @@ public class PlayerController : MonoBehaviour {
 
 	private void Start () {
         rb = GetComponent<Rigidbody2D>();
+        weapons = GetComponent<PlayerWeapons>();
+        mainCam.enabled = true;
+        overhead.enabled = false;
 	}
 	
 	private void Update () {
         movement.x = Input.GetAxisRaw("Horizontal")*speed;
-        movement.y = Input.GetAxisRaw("Vertical")*speed;
+        movement.y = Input.GetAxisRaw("Vertical") * speed;
 	}
 
     private void FixedUpdate()
@@ -51,12 +59,23 @@ public class PlayerController : MonoBehaviour {
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            dead = true;
-            Instantiate(deathAnimation, transform.position, transform.rotation, null);
-            spawnManager.isDead();
-            Destroy(gameObject);
-            Debug.Log("YOU FAILED");
-            Destroy(collision.gameObject);
+            EnemyController ec = collision.gameObject.GetComponent<EnemyController>();
+            if (weapons.shield == PlayerWeapons.WeaponState.Active)
+            {
+                ec.Die();
+                weapons.shield = PlayerWeapons.WeaponState.Reloading;
+            }
+            else
+            {
+                dead = true;
+                Instantiate(deathAnimation, transform.position, transform.rotation, null);
+                spawnManager.isDead();
+                Destroy(gameObject);
+                Debug.Log("YOU FAILED");
+                ec.Die();
+                mainCam.enabled = false;
+                overhead.enabled = true;
+            }
         }
     }
 }
