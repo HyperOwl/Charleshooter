@@ -20,7 +20,7 @@ public class Laser : MonoBehaviour {
         }
         if (collision.gameObject.CompareTag("Edge"))
         {
-            Debug.Log("edge");
+            //Debug.Log("edge");
             Destroy(gameObject);
         }
     }

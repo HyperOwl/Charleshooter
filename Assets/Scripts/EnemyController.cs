@@ -8,10 +8,13 @@ public class EnemyController : MonoBehaviour{
     private float speed = 1;
     [SerializeField]
     private ParticleSystem death;
+    [SerializeField]
+    private UIManager uimanager;
     //private SpawnManager spawnmanger;
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        uimanager = GameObject.FindGameObjectWithTag("UI").GetComponent<UIManager>();
         //spawnmanger = GameObject.FindGameObjectWithTag("SpawnManager").GetComponent<SpawnManager>();
         
     }
@@ -35,6 +38,7 @@ public class EnemyController : MonoBehaviour{
         Instantiate(death, transform.position, transform.rotation, null);
         Destroy(gameObject);
         Debug.Log("MLG PRO");
+        uimanager.score++;
     }
 
    

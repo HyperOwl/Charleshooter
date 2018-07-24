@@ -187,6 +187,7 @@ MonoBehaviour:
   player: {fileID: 0}
   speed: 100
   death: {fileID: 198801242745788134, guid: 43ed43134d9cd4441af46a2c23329a28, type: 2}
+  uimanager: {fileID: 0}
 --- !u!212 &212582590635581410
 SpriteRenderer:
   m_ObjectHideFlags: 1

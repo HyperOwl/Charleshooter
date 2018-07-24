@@ -8,7 +8,7 @@ public class SpawnManager : MonoBehaviour {
     public GameObject enemy;
     public int wavecount = 2;
     [SerializeField]
-    private int timeBetweenWaves = 5;
+    private float timeBetweenWaves = 5;
     List<GameObject> spawnpoints = new List<GameObject>();
     [Header("TRACKING")]
     public float countDown;
@@ -16,6 +16,7 @@ public class SpawnManager : MonoBehaviour {
     {
         AddToList(GameObject.FindGameObjectsWithTag("Spawnpoints"));
         countDown = timeBetweenWaves;
+        StartCoroutine(tick());
     }
     private void Update()
     {
@@ -26,7 +27,7 @@ public class SpawnManager : MonoBehaviour {
         else
         {
             StartCoroutine(Spawn(enemy));
-            countDown = 5;
+            countDown = timeBetweenWaves;
         }
     }
     IEnumerator Spawn(GameObject _enemy)
@@ -42,6 +43,14 @@ public class SpawnManager : MonoBehaviour {
             
         }
         yield break;
+    }
+    IEnumerator tick()
+    {
+        while (true)
+        {
+            yield return new WaitForSecondsRealtime(3);
+            timeBetweenWaves -= 0.1f;
+        }
     }
     public void Spawn()
     {

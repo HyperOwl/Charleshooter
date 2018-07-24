@@ -186,6 +186,8 @@ MonoBehaviour:
   barrel1: {fileID: 1177606313039468}
   barrel2: {fileID: 1722908707246288}
   laser: {fileID: 1473200664136008, guid: 01c59b7468ee1e64bbcc36dc38ded7a3, type: 2}
+  shieldReloadTime: 3
+  shield: 2
 --- !u!114 &114964402718217444
 MonoBehaviour:
   m_ObjectHideFlags: 1
