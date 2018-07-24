@@ -21,8 +21,8 @@ GameObject:
   - component: {fileID: 4210124005361280}
   - component: {fileID: 212582590635581410}
   - component: {fileID: 60424913160094906}
-  - component: {fileID: 114928923217221430}
   - component: {fileID: 50963659153154820}
+  - component: {fileID: 114928923217221430}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -185,7 +185,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  speed: 200
+  speed: 100
+  death: {fileID: 198801242745788134, guid: 43ed43134d9cd4441af46a2c23329a28, type: 2}
 --- !u!212 &212582590635581410
 SpriteRenderer:
   m_ObjectHideFlags: 1

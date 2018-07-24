@@ -6,6 +6,8 @@ public class EnemyController : MonoBehaviour{
     private GameObject player;
     [SerializeField]
     private float speed = 1;
+    [SerializeField]
+    private ParticleSystem death;
     //private SpawnManager spawnmanger;
     private void Awake()
     {
@@ -15,7 +17,11 @@ public class EnemyController : MonoBehaviour{
     }
     private void Update()
     {
-        if (!player) return;
+        if (!player)
+        {
+            transform.Rotate(0, 0, 500*Time.deltaTime);
+            return;
+        }
         Vector2 difference = new Vector2(
             player.transform.position.x - transform.position.x,
             player.transform.position.y - transform.position.y);
@@ -26,6 +32,7 @@ public class EnemyController : MonoBehaviour{
     public void Die()
     {
         //spawnmanger.Spawn();
+        Instantiate(death, transform.position, transform.rotation, null);
         Destroy(gameObject);
         Debug.Log("MLG PRO");
     }

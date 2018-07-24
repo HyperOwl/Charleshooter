@@ -3,6 +3,10 @@
 
 public class PlayerController : MonoBehaviour {
     private Rigidbody2D rb;
+    [SerializeField]
+    private ParticleSystem deathAnimation;
+    [SerializeField]
+    private SpawnManager spawnManager;
 
     public bool dead = false;
     public float speed = 1;
@@ -48,6 +52,8 @@ public class PlayerController : MonoBehaviour {
         if (collision.gameObject.CompareTag("Enemy"))
         {
             dead = true;
+            Instantiate(deathAnimation, transform.position, transform.rotation, null);
+            spawnManager.isDead();
             Destroy(gameObject);
             Debug.Log("YOU FAILED");
             Destroy(collision.gameObject);
