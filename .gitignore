@@ -3,6 +3,7 @@
 
 #Unity temp files
 Temp/**
+*.log
 
 # User-specific files
 *.suo
