@@ -201,6 +201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathAnimation: {fileID: 198697459063053212, guid: ac19f34a85df698429b1839065800a41,
     type: 2}
+  uimanager: {fileID: 0}
   spawnManager: {fileID: 0}
   mainCam: {fileID: 0}
   overhead: {fileID: 0}

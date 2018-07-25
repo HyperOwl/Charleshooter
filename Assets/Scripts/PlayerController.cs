@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour {
     [SerializeField]
     private ParticleSystem deathAnimation;
     [SerializeField]
+    private UIManager uimanager;
+    [SerializeField]
     private SpawnManager spawnManager;
     [SerializeField]
     private Camera mainCam;
@@ -67,6 +69,7 @@ public class PlayerController : MonoBehaviour {
             }
             else
             {
+                uimanager.GameOver();
                 dead = true;
                 Instantiate(deathAnimation, transform.position, transform.rotation, null);
                 spawnManager.isDead();
