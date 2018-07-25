@@ -11,6 +11,7 @@ public class EnemyController : MonoBehaviour{
     [SerializeField]
     private UIManager uimanager;
     //private SpawnManager spawnmanger;
+    private bool dying = false;
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -34,10 +35,12 @@ public class EnemyController : MonoBehaviour{
    
     public void Die()
     {
+        if (dying == true) return;
+        dying = true;
         //spawnmanger.Spawn();
         Instantiate(death, transform.position, transform.rotation, null);
         Destroy(gameObject);
-        Debug.Log("MLG PRO");
+        //Debug.Log("MLG PRO");
         uimanager.score++;
     }
 

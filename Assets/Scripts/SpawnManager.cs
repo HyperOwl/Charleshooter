@@ -32,9 +32,9 @@ public class SpawnManager : MonoBehaviour {
     }
     IEnumerator Spawn(GameObject _enemy)
     {
+        Debug.Log("Spawn");
         for (int i = 0; i < wavecount; i++)
         {
-            Debug.Log("Spawn");
             System.Random rng = new System.Random();
             int spawnpoint = rng.Next(0, 4);
             GameObject point = spawnpoints[spawnpoint];
@@ -51,10 +51,6 @@ public class SpawnManager : MonoBehaviour {
             yield return new WaitForSecondsRealtime(3);
             timeBetweenWaves -= 0.1f;
         }
-    }
-    public void Spawn()
-    {
-        StartCoroutine(Spawn(enemy));
     }
     void AddToList(params GameObject[] list)
     {
